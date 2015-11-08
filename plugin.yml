@@ -1,0 +1,32 @@
+name: LastPlayer-Hybrid
+main: LastPlayer\Main
+version: "INDEV for Slice"
+api: [1.0.0]
+author: RedstoneAlmeida
+commands:
+ lp:
+  permission: sghybrid.command.fsg
+  description: SG HYBRID Main Command
+  usage: /lp <set|remove>
+ lobby:
+  permission: sghybrid.command.lobby
+  description: back to lobby
+  usage: /lobby
+permissions:
+ FSurvivalGame.*:
+  description: the main permission
+  default: op
+  children:
+   FSurvivalGame.command.*:
+    description: use commands in plugin
+    default: op
+    children:
+     sghybrid.command.lobby:
+      description: back to lobby
+      default: true
+     sghybrid.command.fsg:
+      description: set SurvivalGame
+      default: op
+   sghybrid.touch.startgame:
+    description: click the sign and join the game
+    default: true
